@@ -1,0 +1,4 @@
+Member functions are created and placed in memory space only once they are defined as a part of class specification.
+All objects belong to same class use the same meber function.
+no separate space is allocated for member functions when objects are created.
+only space for member variables is allocated separately for each object, since they hold different data.

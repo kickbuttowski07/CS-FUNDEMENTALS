@@ -1,0 +1,16 @@
+Overloading refers to use of the same thing for different purposes.
+C++ permits overloading of functions.
+Same function name with different return type, different combo of parameter data types, no of parameters.
+we name it as FUNCTION POLYMORPHISM in OOPS
+
+compiler searches for matching func prototype
+1. checks for same no of parameters and type of parameters
+2. match of return type
+3. Match must be unique
+
+If compiler cannot match the appropriate matching func -> CTE
+if matches correctly -> OVERLOAD RESOLUTION
+
+
+Read 87 page of Bgs OOPS
+how compiler does?

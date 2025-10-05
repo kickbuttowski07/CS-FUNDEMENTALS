@@ -1,0 +1,38 @@
+objective of normal functions is : save memory space by not creating the instructions for each call
+
+Inline functions are good when small function called for many times. since
+    when function is called:
+        - it takes lot of time in executing a series of instructions like:
+            - jumping to fun
+            - save registers
+            - pushing args into stack
+            - returning to calling func
+
+Memory space increases as it replaces at each call.
+
+This is learly a overhead
+one sol :
+     use of macros, drawback is theya re not really functions.
+     no error checking during compiling.
+So c++ introduced INLINE Functions to eliminate the cost of calls to small functions.
+It removes the overhead of substituting the code of func in place of func call.
+
+If func size grows, speed benefits decreases, at some point lost.
+
+Inline keyword sends request to cmpiler to replace the code, if sze grows the compiler ignores the request.
+
+not working cases if func contains:
+1. If func contains STATIC variables.
+2. Recursive calls
+3. loops, swich, goto
+4. func has retur type but it not returning any thing.
+
+
+Inline v/s macros:
+
+both are used for faster execution of code.
+handle by compiler, preproccesor
+ignore if large, still substituted
+can be recursive, cannot.
+
+

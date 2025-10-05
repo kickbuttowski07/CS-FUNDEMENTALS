@@ -1,0 +1,18 @@
+class employee {
+    char name[30];
+    float age;
+public: 
+    void getdata(void);
+    void putdata(void);
+};
+
+identifier employee is a user define data type.
+
+employee manager[3]; // array of manager
+employee worker[5]; // array of worker
+
+
+now lets consider manager[3]
+three objects(manager[0], manager[1], manager[2])
+
+we can use as manager[i].putdata(), manager[i].getdata();

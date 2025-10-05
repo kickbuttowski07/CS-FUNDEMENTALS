@@ -1,0 +1,35 @@
+POINTER TO MEMBERS:
+It is possible to take the address of a member of a class and assign it to a pointer.
+The address of a member can be obtained by applying the operator & to a "fully qualified" class member name.
+class member pointer can be declared using the operator "::*" with class name.
+
+class A {
+    private:
+        int m;
+    public:
+        void show();
+};
+
+int A::* ip = & A::m; (defination)
+
+A::* -> pointer to the member of class A.
+&A::m -> address of the member of class A.
+
+int *ip = &m; -> invalid;
+since m is not simply int data type
+****It has meaning only when it is associated with class to which it is belongs to.
+
+LET consider:
+main() {
+    A a;
+    cout << a.(*ip) << endl; (ip is pointer to the member m, of class A);
+    cout << a.m << endl; // same as above
+
+    
+}
+
+
+
+
+
+

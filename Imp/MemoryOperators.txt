@@ -1,0 +1,66 @@
+Both are unary operators
+
+NEW:
+syntax : pointer_variable = new data-type(value);
+Return type : *void
+return the allocating address.
+In C++, stack memory is automatically allocated for variables at compile time and has a fixed size. 
+For greater control and flexibility, dynamic memory allocation on the heap is used.
+Allowing manual allocation with new and deallocation with delete.
+
+Dynamic allocation done at run time, when the size of required memory isn’t known at compile time
+such as for variable-sized arrays or dynamic data structures like linked lists and trees.
+
+The new operator in C++ allocates memory from the Free Store (a portion of the heap) for any DTs (builtin / user-defined)
+If enough memory is available, it initializes the memory with a default value based on its type and returns the address of the allocated memory.
+
+int *ptr;
+ptr = new int(5);
+(or)
+int *ptr = new int; // address is stored
+*ptr = 5;
+cout << *ptr << " " << ptr << endl;  // (5 0xb52dc20)
+
+ptr = new int[5]{1, 2, 3, 4, 5}; // allocating block of memory of given data type in heap at run time.
+must need to delete to avoid memory leaks.
+
+for(int i=0;i<5;i++) {
+    cout << ptr[i] << " ";
+}
+cout << endl;
+
+
+
+If enough memory is not available during runtime?
+
+the new request indicates failure by throwing an exception of type bad_alloc
+if nothrow is used with new, return nullptr when no enough space in heap.
+it may be a good idea to check for the pointer variable produced by the new before using its program.
+int *p = new (nothrow) int; 
+if (!p) {
+    cout << "Memory allocation failed\n";
+}
+
+
+DELETE:
+syntax : delete pointer_variable, delete []pointer_variable(delete entire array);
+return type : void
+when an object created with new, will remain in existence until explicitly destroyed using delete.
+
+
+Advantages of new over malloc:
+1. new automatically calculate size of data object, malloc uses sizeof operator.
+2. new automatically type casts to correct pointer_type, malloc need to use a type cast.
+3. new, delete can be overloaded unlike others.
+
+
+int *arr = new int[3]; // heap allocation must need to delete explicitly
+int arr[3]; // stack allocation, deletes automatically when code completes.
+
+both are not same.
+but accessing the elements by arr[i]
+in 1st *(arr + i) -> i is offset.
+
+
+
+

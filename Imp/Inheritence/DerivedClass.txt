@@ -1,0 +1,41 @@
+syntax:
+
+class derived-class_name : visibility-mode base-class_name {
+    .........//
+    .........//
+    .........//
+    members of derived class 
+};
+
+":" colon indicates derived class-name is derived from base class-name.
+visibility mode is optional, either private or public.
+Default : private
+defines features of the base class are privately derived or publicly derived.
+
+
+PUBICLY DERIVED:
+public members of base class become public members of the derived class
+They are accessible to the objects of derived class.
+Private members are not inherited, never become the members of derived class.
+
+
+PRIVATELY DERIVED:
+public members of the base class become private members of the derived class.
+public members of the base class can be accessed only through member functions of derived class.
+They are inaccessible to the objects of derived class.
+Private members are not inherited, never become the members of derived class.
+
+
+
+MAKING A PRIVATE MEMBER INHERITABLE:
+
+To make inheritable, need to modify the visibility mode to public, so the public member functions of base class can access their private members.
+As public member functions of base class will be public to derived class too.
+
+C++ provide 3rd visibility mode "PROTECTED", serves limited purpose in inheritence.
+Page 211.
+
+PROTECTEDLY DERIVED:
+when a protected member is inherited in public mode, it becomed protected in the derived class too, so accessible through member functions.
+when in private mode, becomes private in derived class, available to the member functions of derived class, but not available for further inheritence
+since private members cannot be inherited.

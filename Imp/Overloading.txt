@@ -1,0 +1,33 @@
+OPERATOR OVERLOADING:
+
+we can overload all C++ operators except:
+1. Class member operators (., .*)
+2. Scope resolutions (::)
+3. size operator (sizeof)
+4. Conditional operator (?:)
+
+
+
+
+METHOD OVERLOADING:
+In C++, method overloading refers to defining multiple functions within the same class with the same name but different parameter lists.
+This is a form of compile-time polymorphism.
+Method overloading allows a class to have more than one function with the same name but differing in:
+
+1.Number of parameters
+2.Type of parameters
+3.Order of parameters
+
+Working:
+The compiler determines at compile time which method to call based on:
+
+Number of arguments
+Types of arguments
+Order of arguments
+
+Keep in mind that return type alone cannot differentiate overloaded methods
+
+void display(int a = 0);
+
+// Ambiguous — both match a call like display();
+void display();

@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+// Function with static variable
+int fun(){
+    static int count = 0;
+    count++;
+    return count;
+}
+int main(){
+    printf("%d ", fun());
+    printf("%d ", fun());
+    return 0;
+}
+
+output : 1, 2
+
+
+#include <stdio.h>
+int* fun() {
+    
+    // Create and Return static variable
+    static int local_var = 123;
+    return &local_var;
+    
+}
+int main() {
+    printf("%d", *fun());
+    return 0;
+}
+
+output = 123
+as it is static local variable it can't be destroyed, unlike other local variable (output = empty); 
+
+a static variable is declared using static keyword and have the property of retaining their value between multiple function calls. 
+It is initialized only once and is not destroyed when the function returns a value. 
+It extends the lifetime of the variable till the end of the program.
+
+
+Static keyword int Oops:
+
+static variables known as Class variables, since they are associated with class itself rather than with any class object.
+it is independent of the objects.
+no matter how many objects created for that class, there is only one copy of the static member for entire class.
+Static member is shared by all the objects.
+By default all the static data is initialised to zero when the first object is created.
+
+Static function and data members can access directly other static data members and data functions.
+cannot initialised inside the class as it is shared by each object.
+It extends the lifetime of the variable till the end of the program, visible within class.
+
+

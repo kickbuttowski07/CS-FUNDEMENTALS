@@ -1,0 +1,110 @@
+default return type of all functions is int.
+main() return type -> int(C++)(return 0) successfully executed acknowledgment to compiler.
+main() no return type in C
+
+"<<" cout -> insertion or put to operator
+">>" cin -> extraction or get from operator
+
+
+OVERLOADING Of OPERATORS:
+These operators can be overloaded like  an operator used for different purposes
+<< can also a bitwise left operator
+>> can also a bitwise right operator
+This overloading is related to polymorphism.
+
+CASCADING of I/O operators
+1. cin >> a >> b;
+2. cout << "a =" << a << " " << "b =" << b << endl;
+
+multiple use of these operators known as cascading of I/O operators.
+
+Cin can read one string at a time without blank space.
+If blank space need to use getline(cin, s)
+
+STRUCTURE OF C++ Program:
+1. Header files
+2. Class declaration
+3. Member func declaration
+4. Main function
+
+
+COMPILING AND LINKING
+preprocessor -> .cpp, macros expansion, include header files, remove comments result pure C++ file with no preprocessor directives.
+compiling -> .cpp to .o (src to obj) 
+    1. compiler .cpp to .s (src file to assembly file) (code to instructions(human readable))
+    2. assembler .s to .o  (assembly file to obj file) (assembly code to machine code)
+linking   -> .o to .exe 
+    linker -> .o to .exe (obj file to exe file) link the library funcs to object file
+
+.o, .exe are binary files
+.s, .cpp are human readable files
+
+
+VOID DATA TYPE:
+void can only used for function return type, empty arguments list, pointer declaration
+1. void func1(void);
+2. void *ptr;
+
+we can assign other type of pointer to void pointer
+
+int *gp;
+gp = ptr;
+
+*ip = *gp; -> invalid as no sense in dereferncing a pointer to a void value.
+
+assigning any type of pointer to void pointer without cast is allowed in C, C++.
+in C we can directly assign void pointer to any other pointer, but not in C++
+
+void *ptr1;
+char *ptr2;
+ptr2 = ptr1;
+// in C it is correct
+
+ptr2 = (char *)ptr1;
+// in C++ (must do casting)
+
+
+** in C++ char st[3] = "xyz" -> wrong need to declare size + 1 => (st[4])
+in C it assumes null character at last, not in C++.
+
+
+
+
+
+COMPATIBILITY FOR CASTING:
+1.IMPLICIT: by compiler
+bool -> char -> short int -> int ->  unsigned int -> long -> unsigned -> long long -> float -> double -> long double
+------------------------------------------> priority increases.
+char can be cast into (all the data types more prior to that )
+
+2.EXPLICIT: by user static_cast<int>, (int).......
+
+
+
+REFERENCE VARIABLE:
+
+provides ALIAS for previous defined variable.
+
+Here & is not address operator, "reference to" operator
+
+float total = 100; 
+float &sum = total; (reference variable)(initialised at the time of declaration only)
+float sum2 = total (assignment)(won't change)
+
+now both the varaibles(total and sum) refers to same data object in the memory.
+
+cout << total << sum << sum2 << endl; (100 100 100)
+total += 10;
+cout << total << sum << sum2 << endl; (110 110 100)
+sum = 0;
+cout<< total << sum << sum2 << endl; (0 0 100)
+
+Major application is in passing arguments to functions. (call by refernce don't create copies)
+works well for both built-in, user defined data types.
+
+
+
+
+Manipulators:
+setw, endl
+setw(value) sets width 

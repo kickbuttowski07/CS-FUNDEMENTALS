@@ -1,0 +1,126 @@
+exit(0) exit_success, termination of program without errors
+exit(1) exit_failure, abnormal termination with errors
+
+
+Important implementations of vectors, maps
+
+Static:
+https://www.geeksforgeeks.org/cpp/static-keyword-cpp/
+
+
+Namespace:
+namespace NT{
+     calling other function with in same namespace, from a function in a namespace by just (function_name)
+     if from other namespace (NS :: func_name)
+     if global namepsace(:: func_name)
+     Global namespace is -> (function in global scope)
+     Namespace is like a special container or a label that holds a
+     group of names - like variables, functions, or classes - to avoid confusion when we have the same name used in different parts of the program.
+     call -> NT::mul(a,b,c); using scope resolution in main function
+     const int M = MOD;
+     ll mul(ll a, ll b, ll m) {
+          return ((a % m) * (b % m)) % m;
+     }
+
+     ll add(ll a, ll b, ll m) {
+          return ((a % m) + (b % m)) % m;
+     }
+
+     ll sub(ll a, ll b, ll m) {
+          return ((a % m) - (b % m) + m) % m;
+     }
+
+     ll power(ll x, ll y) {
+          ll power = x, sum = 1;
+          if (x == 0) {
+               sum = 0;
+          }
+          while (y > 0) {
+               if ((y & 1) == 1) {
+               sum *= power;
+               }
+               power *= power;
+               y = y >> 1;
+          }
+          return sum;
+     }
+
+     ll fast_pow(ll a, ll p, ll m) {
+          ll power = a, res = 1;
+          while (p > 0) {
+               if (p & 1) {
+               res = (res * power) % m;
+               }
+               power = (power * power) % m;
+               p = p >> 1;
+          }
+          return res;
+     }
+
+     ll modInverse(ll a, ll m) {
+          return fast_pow(a, m - 2, m);
+     }
+
+     ll divide(ll a, ll b, ll m) {
+          return mul(a, modInverse(b, m), m);
+     }
+};
+
+Memory layout in c
+https://www.geeksforgeeks.org/c/memory-layout-of-c-program/
+
+
+Pointers:
+Function Pointers: https://www.geeksforgeeks.org/c/function-pointer-in-c/
+array and pointers : https://www.geeksforgeeks.org/c/relationship-between-pointer-and-array-in-c/
+
+
+size of should never be used for array parameters in a local function it gives wrong size, a separate parameter for array size (or length) should be passed to fun().
+default access modifier in c++ is private, for java is public
+
+Passing and Returing Objects in C++ (read)
+
+
+See pointers video
+
+
+
+#include < stdio.h >
+int main() {
+double a[2]={20.0, 25.0}, *p, *q;
+p = a;
+q = p + 1;
+printf("%d,%d", (int)(q - p), (int)(*q - *p)); // distance b/w pointers, differnece b/w data they point to
+return 0;}
+
+op: 1, 8
+(int)(q - p) = (p + 1 - p) = 1;
+
+
+// f(g(a), h(b)); f is a function then h(b) evaluates first (right to left);
+
+Aliasing means multiple variables having the same memory location
+
+
+Functions defining inside the class are treated as inline functions or else called as external functions.
+we can still make outside function as inline function by making inline qualifier in header line of the defination.
+
+
+class item {
+     ......
+     ......
+    public:
+     void getdata(int a, float b); // declaration
+}
+
+inline void item :: getdata(int a, int b) { // defination
+
+}
+
+
+Fun fact in C++.
+arr[i] ≡ *(arr + i) ≡ *(i + arr) ≡ i[arr]
+
+arr[2] = 2[arr];
+
+page number 132 imp, LOCAL classes

@@ -1,0 +1,6 @@
+Have both private, public, protected.
+by default public. the only difference between structure, class
+
+in C data hiding is not possible, all are public members
+struct student A; correct in c, incorrect in c++
+student A; incorrect in c, correct in c++

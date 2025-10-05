@@ -1,0 +1,80 @@
+To make an outside function "friendly" to a class :
+2 types:
+    1. global function
+    2. member function of other class.
+
+
+1.
+class ABC {
+    ......
+    ......
+public:
+    ......
+    ......
+    friend void xyz(void); // declaration says, xyz global function is a friend of the class ABC, it can access the private members of ABC.
+};
+
+void xyx() {
+    .......
+    .......
+}
+
+the function that are declared with keyword friend are FRIEND FUNCTIONS.
+A function can be declared as friend in any no of classes.
+A friend function although not a member function, has full rights to access the private members of the class.
+
+********in this if we take multiple classes object as arguments, then we need to give the FORWARD DECLARATION.
+
+
+
+2. In this case friend function is bridge between classes.
+
+class X {
+    ......
+    ......
+    int fun1(Y, Y);
+    ......
+}
+
+class Y {
+    ......
+    ......
+    friend int X :: fun1(Y, Y);
+    ......
+    ......
+
+    method function fun1(Y, Y), is a friend function of class Y.
+};
+
+Characteristics of a FRIEND FUNC:
+It is not in the scope of the class to which it is declared as friend.
+As it is not in the scope of the class, it cannot be called using the object of the class.
+Can be invoked like a normal function.
+It can be declared in private or public without changing its meaning.
+It has objects as arguments.
+Unlike member functions it cannot access the member names directly, has to use an object name(passed as arg in declaration) and dot membership operator
+with each member name.(A.x, B.y, .......)
+
+
+
+we can also declare all the member functions of one class as the friend functions of another class.
+then class is called FRIEND CLASS.
+
+
+class Z {
+    ......
+    ......
+    friend class X; 
+    ......
+    ......
+    all member functions of class X are friend functions of class Z.
+};
+
+
+
+
+Friend functions can be called by reference, local copies of the objects are not made.
+Instead pointer to the address of the object is passed, the called function directly works on the original object used in call.
+
+** This method is used to modifiy the values of private members of the class, against the basic principles of data hiding.
+This is a flaw in OOPS.

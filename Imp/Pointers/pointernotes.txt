@@ -1,0 +1,62 @@
+ISSUES WITH POINTERS:
+Pointers are vulnerable to errors and have following disadvantages:
+
+MEMORY CORRUPTION can occur if an incorrect value is provided to pointers.
+Pointers are a little bit COMPLEX to understand.
+Pointers are majorly responsible for MEMORY LEAKS in C.
+Accessing using pointers are comparatively SLOWER than variables in C.
+Uninitialized pointers might cause a SEGMENTATION FAULT.
+Attempt to dereference an unitialised pointer(wild pointer) -> run time errors so must be initialised
+
+
+NULL POINTERS:
+
+use nullptr, avoid NULL and 0.
+
+besides address pointer can hold null value.
+pointer holding null value is known as NULL POINTER.
+pointer is not pointing at anything.
+int *ptr {} or int *ptr = nullptr -> NULL POINTER.
+cannot dereference a null pointer, RTE.
+
+When an object is destroyed(but the obj is still valid), any pointers to the destroyed object will be left dangling (they will not be automatically set to nullptr). 
+It is your responsibility to detect these cases and ensure those pointers are subsequently set to nullptr.
+We can check a pointer is null pointer or not(boolean)
+we cannot check whether a pointer is valid or dangling
+
+dereferencing a nullptr, dangling pointer -> undefined behaviour
+dereferencing a not nullptr -> possibly undefined (if pointer is dangling).
+dereferencing a valid obj -> predictable.
+
+
+
+
+CONSTANT POINTER:
+In constant pointers, the memory address stored inside the pointer is constant and cannot be modified once it is defined. 
+It will always point to the same memory address.
+
+#include <stdio.h>
+
+int main() {
+    int a = 90;
+    int b = 50;
+
+    // Creating a constant pointer
+    int* const my_ptr = &a;
+    
+    // Trying to reassign it to b
+    // my_ptr = &b;(shows error)
+
+    return 0;
+}
+
+Like reference to const, a pointer to const may not be used to change the object to which the pointer points.
+if we want to store the address of a const object, only need to use the pointer to const.
+
+const double pi = 3.14; value of pi cannot change as it is const value.
+double *ptr = &pi; ERROR (ptr is a plain pointer)
+const double *cptr = &pi; OK(const double pointer)
+
+*cptr = 42; ERROR cannot assign to cptr
+double dval = 3.14; value of dval can change as it is plain.
+cptr = &dval; OK, but cannot change the dval through cptr. can done by plain pointer.

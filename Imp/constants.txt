@@ -1,0 +1,44 @@
+CONST KEYWORD IN C/C++:
+C++ requires const to initialised at point of declaration, in C does not require if none initialised, defualt (0);
+
+Scoping of const values differs in C, C++.
+const in C++ defaults to internal linkage, so local to file it is declared in. To give external linkage need to define as EXTERN.
+const in C defaults to global linkage, visible outside the file they declared in. To make local by declaring them STATIC.
+
+REFERENCE TO CONSTANT:
+
+const int ci = 1024;
+const int &r1 = ci; // ok 
+
+r1 = 42; // error cannot change the value of const
+
+int &r2 = ci; // error: non constant reference to constant.
+int v = 5;
+const int &r3 = v; // ok : const reference to non const
+const int &r4 = 43; // ok : reference to a const
+we can bind a reference to const to a non - const object, a literal, more general expression.
+like 
+const int &r5 = r3 * 3;
+int &r6 = r3 * 4; //ERROR
+
+SPECIAL CASE:
+
+double dval = 3.24;
+const int &r1 = dval; 
+this is ok since,
+compiler does inside (int temp = dval) assigns integer part
+then const int &r1 = temp; (now it is correct).
+Any type of conversion is possible(meaning full).
+
+
+CONST MEMBER FUNCTIONS in C++:
+
+An obj declared as const cannot be changed once it is initialised, need to initialised at the time of declaration it self only.
+can invoke only const member functions as these functions ensure not to modify the object.
+if envoke non const members -> CTE.
+Any attempt to change the data member of const objects results to COMPILE TIME ERROR.
+Can be initialised using constructors like initialisations methods.
+A const function can be called on any type of object, const object as well as non const object.
+A const function dont change the data members of the class, if then leads to error
+// https://www.geeksforgeeks.org/cpp/const-member-functions-c/
+See examples

@@ -1,0 +1,11 @@
+new operators other than C are :
+::        scope resolution operator
+::*       pointer to member declarator
+->*       pointer to member operator
+.*        pointer to member operator
+delete    Memory release operator
+endl      line feed operator
+new       Memory allocaton operator
+setw      field width operator
+
+
