@@ -35,7 +35,19 @@ As public member functions of base class will be public to derived class too.
 C++ provide 3rd visibility mode "PROTECTED", serves limited purpose in inheritence.
 Page 211.
 
-PROTECTEDLY DERIVED:
 when a protected member is inherited in public mode, it becomed protected in the derived class too, so accessible through member functions.
 when in private mode, becomes private in derived class, available to the member functions of derived class, but not available for further inheritence
 since private members cannot be inherited.
+
+
+It is also possible to inherit a base class in protected mode(Protected derivation).
+Both the public and protected members of the base class become protected members of the derived class.
+
+Access Control to the private and protected members of a class:
+1. A function that is a friend of the class.
+2. Member function of a class that is a friend of the class.
+3. Member function of the derived class.
+
+Friend functions, and member functions of a friend class can directly access the PRIVATE AND PROTECTED DATA.
+member functions of derived class can directly access only the PROTECTED data, since private data cannot inherited.
+The private data of base class can accessed throught the member functions of the base class.

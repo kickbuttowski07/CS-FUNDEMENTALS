@@ -1,0 +1,89 @@
+The class A serves as base class for the derived class B, which in turn serves as a base class for the derived class C.
+class B -> Intermediate Base class, link between A and C.
+The chain ABC is known as Inheritence Path.
+
+class A{......};
+class B : A{......};
+class C : B{......};
+
+Like this can be extented  to any no of levels.
+This is MultiLevelInheritence.
+
+
+class result contains:
+private:
+    float total;
+protected:
+    int roll_no;
+    float sub1;
+    float sub2;
+public:
+    void get_number();
+    void put_number();  
+    void get_marks(float, float);
+    void put_marks(void);
+    void display(void);
+
+
+
+#include<iostream>
+using namespace std;
+
+class student{
+    protected:
+        int roll_no;
+    public:
+        void get_number(int);
+        void put_number(void);
+};
+
+void student :: get_number(int a) {
+    roll_no = a;
+}
+
+void student :: put_number(void) {
+    cout << "Roll Number = " << roll_no << endl;
+}
+
+class test : public student {
+    protected:
+        float sub1;
+        float sub2;
+    public:
+        void get_marks(float, float);
+        void put_marks(void);
+};
+
+void test :: get_marks(float x, float y) {
+    sub1 = x, sub2 = y;
+}
+
+void test :: put_marks(void) {
+    cout << "Marks in SUB1 =" << sub1 << endl;
+    cout << "Marks in SUB2 =" << sub2 << endl;
+}
+
+class result : public test{
+        float total; 
+    public:
+        void display(void);
+};
+
+void result :: display(void) {
+    total = sub1 + sub2;
+    put_number();
+    put_marks();
+    cout << "Total = " << total << endl;
+}
+
+
+int main() {
+    result s1;
+    s1.get_number(18);
+    s1.put_number();
+
+    s1.get_marks(25.5, 24.7);
+    s1.put_marks();
+
+    s1.display();
+}
