@@ -63,6 +63,7 @@ inline void solve()
     // Increment, decrement, finding ith postion from curr
     int arr[5] = {1, 3, 2, 5, 4};
     int *ptr = arr;         // (&arr[0] is correct), (&arr is wrong);
+    //both arr, ptr are pointers to the array
     cout << *(ptr) << endl; // 1;
     ptr++;
     cout << *(ptr) << endl; // 3 
