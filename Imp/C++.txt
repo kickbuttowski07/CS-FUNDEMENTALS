@@ -84,6 +84,7 @@ char can be cast into (all the data types more prior to that )
 REFERENCE VARIABLE:
 
 provides ALIAS for previous defined variable.
+defining a reference doesnot occupy additional memory.
 
 Here & is not address operator, "reference to" operator
 
