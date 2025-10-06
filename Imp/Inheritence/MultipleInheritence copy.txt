@@ -1,0 +1,100 @@
+A class can inherit the attributes of 2 or more classes, this is known as Multiple Inheritence.
+Allow us to combine the features of several existing classes as a starting point for defining new classes.
+
+class D: visibility B1, visibility B2....
+{
+    .......
+    .......
+    .......
+};
+visibility either public or private.
+
+Class Result(P) contains :
+protected:
+    int m;
+    int n;
+public:
+    void display(void);
+    void get_m(int);
+    void get_n(int);
+
+#include<iostream>
+using namespace std;
+
+class M {
+    protected:
+        int m;
+    public:
+        void get_m(int);
+};
+
+void M :: get_m(int m) {
+    this->m = m;
+}
+
+class N {
+    protected:
+        int n;
+    public:
+        void get_n(int);
+};
+
+void N :: get_n(int n) {
+    this->n = n;
+}
+
+class P : public M, public N {
+    public:
+        void display(void);
+};
+
+void P :: display(void) {
+    cout << "m = " << m << endl;
+    cout << "n = " << n << endl;
+    cout << "m * n = " << m * n << endl;
+}
+
+int main() {
+    P p;
+    p.get_m(10);
+    p.get_n(5);
+    p.display();
+}
+
+
+AMBIGUITY RESOLUTION IN INHERITENCE:
+in multiple inheritence, we may face problems when a function with same name appears in more than one base class.
+
+
+Example:
+
+class M {
+    public:
+        void display(void) {
+            cout << "Class M" << endl;
+        }
+};
+
+class N {
+    public:
+        void display(void) {
+            cout << "Class N" << endl;
+        }
+};
+
+PROBLEM: which display() function is used by derived class when we inherit these two classes.
+
+SOLUTION: using class resolution operator.
+class P : public M, public N {
+    public:
+        void display(void) {
+            M :: display();
+        }
+};
+
+
+now we can use the derived class as 
+int main() {
+    P p;
+    p.display();
+}

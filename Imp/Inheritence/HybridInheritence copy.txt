@@ -1,0 +1,68 @@
+Example of multiple and multilevel Inheritences.
+
+#include<iostream>
+using namespace std;
+
+class student {
+    protected:
+        int roll_no;
+    public:
+        void get_number(int roll_no) {
+            this->roll_no = roll_no;
+        }
+
+        void put_number(void) {
+            cout << "Roll Number = " << this->roll_no << endl;
+        }
+};
+
+class test : public student {
+    protected:
+        float part1, part2;
+    public:
+        void get_marks(float part1, float part2) {
+            this->part1 = part1;
+            this->part2 = part2;
+        }
+
+        void put_marks(void) {
+            cout << "Marks Obtained = " << endl;
+            cout << "Part1 = " << this->part1 << endl;
+            cout << "Part2 = " << this->part2 << endl;
+        }
+};
+
+class sports {
+    protected:
+        float score;
+    public:
+        void get_score(float score) {
+            this->score = score;
+        }
+        void put_score(void) {
+            cout << "Sports wt: " << this->score << endl;
+        }
+};
+
+class result : public test, public sports {
+        float total;
+    public:
+        void display(void);
+};
+
+void result :: display(void) {
+    this->total = this->part1 + this->part2 + this->score;
+    this->put_number();
+    this->put_marks();
+    this->put_score();
+
+    cout << "Total Score = " << total << endl;  
+}
+
+int main() {
+    result s1;
+    s1.get_number(18);
+    s1.get_marks(27.5, 34);
+    s1.get_score(6.0);
+    s1.display();
+}

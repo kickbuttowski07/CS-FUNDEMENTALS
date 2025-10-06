@@ -51,3 +51,6 @@ Access Control to the private and protected members of a class:
 Friend functions, and member functions of a friend class can directly access the PRIVATE AND PROTECTED DATA.
 member functions of derived class can directly access only the PROTECTED data, since private data cannot inherited.
 The private data of base class can accessed throught the member functions of the base class.
+
+
+We can use the this pointer for the inherited members.
