@@ -7,9 +7,20 @@
 // Structure members cannot be initialized with declaration.
 // C++ structures also support other class components such as constructor, destructor, access specifiers, etc.
 
-
 // https://www.geeksforgeeks.org/cpp/structure-vs-class-in-cpp/
 // STRUCTURES V/S CLASSES
+// Remember that strings in C are actually an array of characters, and unfortunately, you can't assign a value to an array using obj.string = "xxx";
+// need to use strcpy function to assign.
+struct Owner {
+  char firstName[30];
+  char lastName[30];
+};
+
+struct Car {
+  char brand[30];
+  int year;
+  struct Owner owner; // Nested structure
+};
 
 #include <iostream>
 using namespace std;
